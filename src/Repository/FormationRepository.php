@@ -39,28 +39,74 @@ class FormationRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * Retourne toutes les formations triées sur un champ
-     * @param type $champ
-     * @param type $ordre
-     * @param type $table si $champ dans une autre table
-     * @return Formation[]
-     */
-    public function findAllOrderBy($champ, $ordre, $table=""): array{
-        if($table==""){
-            return $this->createQueryBuilder('f')
-                    ->orderBy('f.'.$champ, $ordre)
-                    ->getQuery()
-                    ->getResult();
-        }else{
-            return $this->createQueryBuilder('f')
-                    ->join('f.'.$table, 't')
-                    ->orderBy('t.'.$champ, $ordre)
-                    ->getQuery()
-                    ->getResult();            
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>FormationRepository.php</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.ST0 {font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.keyword {color: #0000e6}
+.variable {color: #6d3206}
+.ST1 {color: #969696; background-color: #eceba3}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\wamp64\www\mediatekformation\src\Repository\FormationRepository.php</td></tr></table>
+<pre>
+    <span class="comment">/*</span>
+     <span class="comment">* Retourne toutes les formations triées sur un champ</span>
+     <span class="comment">* @param type $champ</span>
+     <span class="comment">* @param type $ordre</span>
+     <span class="comment">* @param type $table si $champ dans une autre table</span>
+     <span class="comment">* @return Formation[]</span>
+     <span class="comment">*</span> 
+     <span class="comment">*/</span>
+     
+    <span class="keyword">public</span> <span class="keyword">function</span> <span class="ST0">findAllOrderBy</span>(<span class="variable">$champ</span>, <span class="variable">$ordre</span>, <span class="variable">$table</span>=<span class="string">&quot;&quot;</span>): <span class="keyword">array</span>{
+        <span class="keyword">if</span>(<span class="variable">$table</span>==<span class="string">&quot;&quot;</span>){
+            <span class="keyword">return</span> <span class="variable">$this</span>-&gt;createQueryBuilder(<span class="string">&#39;f&#39;</span>)
+                    -&gt;orderBy(<span class="string">&#39;f.&#39;</span>.<span class="variable">$champ</span>, <span class="variable">$ordre</span>)
+                    -&gt;getQuery()
+                    -&gt;getResult();
+        }<span class="keyword">else</span>{
+            <span class="keyword">return</span> <span class="variable">$this</span>-&gt;createQueryBuilder(<span class="string">&#39;f&#39;</span>)
+                    -&gt;join(<span class="string">&#39;f.&#39;</span>.<span class="variable">$table</span>, <span class="string">&#39;t&#39;</span>)
+                    -&gt;orderBy(<span class="string">&#39;t.&#39;</span>.<span class="variable">$champ</span>, <span class="variable">$ordre</span>)
+                    -&gt;getQuery()
+                    -&gt;getResult();            
         }
     }
 
+    
+    
+   <span class="comment">/*</span><span class="comment"> public function findAllOrderByChamp($champ ,$ordre , $table = &quot;&quot;) : array{</span>
+      
+        <span class="comment">return $this-&gt;createQueryBuilder(&#39;f&#39;)</span>
+                    <span class="comment">-&gt;orderBy(&#39;f.&#39;.$champ, $ordre)</span>
+                    <span class="comment">-&gt;getQuery()</span>
+                    <span class="comment">-&gt;getResult();</span>
+    <span class="comment">}</span>
+    
+    
+     <span class="comment">public function findAllOrderByJoinTable($champ ,$ordre, $table ) : array{</span>
+     <span class="ST1">return $this-&gt;createQueryBuilder(&#39;f&#39;)</span>
+                    <span class="ST1">-&gt;join(&#39;f.&#39;.$table, &#39;t&#39;)</span>
+                    <span class="ST1">-&gt;orderBy(&#39;t.&#39;.$champ, $ordre)</span>
+                    <span class="ST1">-&gt;getQuery()</span>
+                    <span class="ST1">-&gt;getResult();</span> 
+     <span class="comment">}</span>
+        
+</pre></body>
+</html>
+ 
     /**
      * Enregistrements dont un champ contient une valeur
      * ou tous les enregistrements si la valeur est vide
